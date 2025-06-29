@@ -1,0 +1,412 @@
+/* Estilos adicionales para las nuevas funcionalidades */
+
+/* Botones de acción en tarjetas de propiedades */
+.property-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.favorite-btn,
+.compare-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-btn:hover,
+.compare-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.favorite-btn.active {
+    background: #dc3545;
+    color: white;
+}
+
+.compare-btn.active {
+    background: #006aff;
+    color: white;
+}
+
+/* Widget de comparación flotante */
+.compare-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.compare-widget-header {
+    background: linear-gradient(135deg, #006aff, #4dabf7);
+    color: white;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.compare-widget-header h6 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-close-widget {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+}
+
+.btn-close-widget:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.compare-widget-body {
+    padding: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.compare-widget-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    transition: background 0.2s ease;
+}
+
+.compare-widget-item:hover {
+    background: #e9ecef;
+}
+
+.compare-widget-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.compare-widget-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.compare-widget-item-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.compare-widget-item-price {
+    font-size: 11px;
+    color: #006aff;
+    font-weight: 500;
+    margin: 0;
+}
+
+.compare-widget-item-remove {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+}
+
+.compare-widget-item-remove:hover {
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.compare-widget-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Modal de comparación */
+.comparison-modal .modal-dialog {
+    max-width: 90vw;
+}
+
+.comparison-table {
+    font-size: 14px;
+}
+
+.comparison-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    border-top: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.comparison-table td {
+    vertical-align: middle;
+}
+
+.comparison-property-header {
+    text-align: center;
+    padding: 15px;
+}
+
+.comparison-property-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.comparison-property-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.comparison-property-price {
+    color: #006aff;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* Búsqueda avanzada */
+.advanced-search-container {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+}
+
+.search-input-container {
+    position: relative;
+}
+
+.suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background: #f8f9fa;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.search-history,
+.saved-searches {
+    background: white;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.search-history h6,
+.saved-searches h6 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.search-history-item,
+.saved-search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    background: #f8f9fa;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-history-item:hover,
+.saved-search-item:hover {
+    background: #e9ecef;
+}
+
+.search-item-remove {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .compare-widget {
+        width: calc(100vw - 40px);
+        right: 20px;
+        left: 20px;
+    }
+    
+    .property-actions {
+        flex-direction: row;
+        top: 10px;
+        right: 10px;
+        left: auto;
+    }
+    
+    .comparison-modal .modal-dialog {
+        max-width: 95vw;
+        margin: 10px;
+    }
+    
+    .comparison-table {
+        font-size: 12px;
+    }
+    
+    .comparison-property-image {
+        height: 120px;
+    }
+    
+    .advanced-search-container {
+        padding: 10px;
+    }
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.compare-widget {
+    animation: slideInUp 0.3s ease;
+}
+
+.compare-widget.hiding {
+    animation: slideOutDown 0.3s ease;
+}
+
+/* Estados de carga */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mejoras en accesibilidad */
+.favorite-btn:focus,
+.compare-btn:focus,
+.btn-close-widget:focus,
+.compare-widget-item-remove:focus {
+    outline: 2px solid #006aff;
+    outline-offset: 2px;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .dark-mode .compare-widget {
+        background: #2d3748;
+        color: white;
+    }
+    
+    .dark-mode .compare-widget-item {
+        background: #4a5568;
+    }
+    
+    .dark-mode .compare-widget-item:hover {
+        background: #5a6578;
+    }
+    
+    .dark-mode .advanced-search-container {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: white;
+    }
+    
+    .dark-mode .suggestions-container {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: white;
+    }
+    
+    .dark-mode .suggestion-item:hover {
+        background: #4a5568;
+    }
+}

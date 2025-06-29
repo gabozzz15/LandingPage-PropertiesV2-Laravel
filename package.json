@@ -1,0 +1,94 @@
+{
+  "name": "LandingProperties Enhanced",
+  "version": "2.0.0",
+  "description": "Portal inmobiliario avanzado con PWA, búsqueda inteligente y comparación de propiedades",
+  "main": "index.html",
+  "scripts": {
+    "start": "php -S localhost:8000",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o css/styles.min.css css/styles.css css/slider.css css/enhancements.css css/additional-features.css",
+    "minify-js": "uglifyjs js/main.js js/advanced-search.js js/property-comparison.js js/notifications.js js/app-config.js -o js/bundle.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint js/*.js",
+    "serve-https": "http-server -S -C cert.pem -K key.pem -p 8443",
+    "generate-icons": "node scripts/generate-icons.js"
+  },
+  "keywords": [
+    "inmobiliaria",
+    "propiedades",
+    "pwa",
+    "real-estate",
+    "properties",
+    "responsive",
+    "javascript",
+    "bootstrap"
+  ],
+  "author": "LandingProperties Team",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "uglify-js": "^3.17.4",
+    "eslint": "^8.50.0",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "leaflet": "^1.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/landingproperties.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/landingproperties/issues"
+  },
+  "homepage": "https://landingproperties.com",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "pwa": {
+    "name": "LandingProperties",
+    "short_name": "LandingProp",
+    "theme_color": "#006aff",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/"
+  },
+  "features": {
+    "advanced_search": true,
+    "property_comparison": true,
+    "push_notifications": true,
+    "offline_support": true,
+    "dark_mode": true,
+    "social_sharing": true,
+    "favorites": true,
+    "analytics": true
+  },
+  "api": {
+    "base_url": "https://api.landingproperties.com",
+    "version": "v1",
+    "endpoints": {
+      "properties": "/properties",
+      "search": "/search",
+      "favorites": "/favorites",
+      "notifications": "/notifications"
+    }
+  },
+  "seo": {
+    "title": "LandingProperties - Tu portal inmobiliario",
+    "description": "Encuentra tu propiedad ideal con LandingProperties. El mejor portal inmobiliario con propiedades de calidad.",
+    "keywords": "propiedades, inmobiliaria, casas, departamentos, venta, renta, bienes raíces",
+    "og_image": "https://landingproperties.com/images/og-image.jpg",
+    "twitter_card": "summary_large_image"
+  },
+  "performance": {
+    "lazy_loading": true,
+    "image_optimization": true,
+    "code_splitting": false,
+    "service_worker": true,
+    "cache_strategy": "cache_first"
+  }
+}

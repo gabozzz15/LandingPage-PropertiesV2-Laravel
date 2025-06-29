@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>LandingProperties - Tu portal inmobiliario | Encuentra tu hogar ideal</title>
+    <meta name="description" content="Encuentra tu propiedad ideal en LandingProperties. El mejor portal inmobiliario con casas, departamentos y locales comerciales. ¡Descubre tu nuevo hogar hoy!">
+    <meta name="keywords" content="propiedades, inmobiliaria, casas, departamentos, venta, renta, bienes raíces">
+    <meta name="author" content="LandingProperties">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://landingproperties.com">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="LandingProperties - Tu portal inmobiliario">
+    <meta property="og:description" content="Encuentra tu propiedad ideal con LandingProperties. El mejor portal inmobiliario con propiedades de calidad.">
+    <meta property="og:image" content="https://landingproperties.com/images/og-image.jpg">
+    <meta property="og:url" content="https://landingproperties.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LandingProperties">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LandingProperties - Tu portal inmobiliario">
+    <meta name="twitter:description" content="Encuentra tu propiedad ideal con LandingProperties.">
+    <meta name="twitter:image" content="https://landingproperties.com/images/twitter-image.jpg">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#006aff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LandingProperties">
+    <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Slider CSS -->
+    <link rel="stylesheet" href="css/slider.css">
+    <!-- Enhanced CSS -->
+    <link rel="stylesheet" href="css/enhancements.css">
+    <!-- Additional Features CSS -->
+    <link rel="stylesheet" href="css/additional-features.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Slider CSS -->
+    <link rel="stylesheet" href="css/slider.css">
+    <!-- Enhanced CSS -->
+    <link rel="stylesheet" href="css/enhancements.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "LandingProperties",
+        "description": "Portal inmobiliario especializado en propiedades de calidad",
+        "url": "https://landingproperties.com",
+        "logo": "https://landingproperties.com/images/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-123-4567",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish", "English"]
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Real Estate Ave",
+            "addressLocality": "Ciudad",
+            "addressRegion": "Estado",
+            "postalCode": "12345",
+            "addressCountry": "MX"
+        },
+        "sameAs": [
+            "https://facebook.com/landingproperties",
+            "https://instagram.com/landingproperties",
+            "https://twitter.com/landingproperties"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navbar mejorado -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-building"></i> LandingProperties
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-home"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#propiedades"><i class="fas fa-building"></i> Propiedades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mapa"><i class="fas fa-map-marker-alt"></i> Mapa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+                    </li>
+                    <!-- Comparación de propiedades -->
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light me-2" id="compare-btn" onclick="propertyComparison.showComparison()" style="display: none;">
+                            <i class="fas fa-balance-scale"></i> Comparar (<span id="compare-count">0</span>)
+                        </button>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-outline-light" href="#"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider Section -->
+    <section class="hero-slider">
+        <div class="list">
+            <div class="item active">
+                <img src="css/img/slider/casa-lujo1.jpg">
+                <div class="content-header-slider">
+                    <p>Exclusivo</p>
+                    <h1>Encuentra tu Hogar Ideal</h1>
+                    <p>Explora nuestra selección de propiedades exclusivas en las mejores ubicaciones.</p>
+                    <div class="hero-buttons">
+                        <a href="#propiedades" class="btn btn-light btn-lg"><i class="fas fa-search me-2"></i>Ver propiedades</a>
+                        <a href="#contacto" class="btn btn-outline-light btn-lg"><i class="fas fa-envelope me-2"></i>Contactar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="css/img/slider/casa-lujo2.webp">
+                <div class="content-header-slider">
+                    <p>Moderno</p>
+                    <h1>Propiedades de Lujo</h1>
+                    <p>Descubre espacios únicos diseñados para tu estilo de vida.</p>
+                    <div class="hero-buttons">
+                        <a href="#propiedades" class="btn btn-light btn-lg"><i class="fas fa-search me-2"></i>Ver propiedades</a>
+                        <a href="#contacto" class="btn btn-outline-light btn-lg"><i class="fas fa-envelope me-2"></i>Contactar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="css/img/slider/casa-lujo3.webp">
+                <div class="content-header-slider">
+                    <p>Inversión</p>
+                    <h1>Tu Próxima Propiedad te Espera</h1>
+                    <p>Encuentra la propiedad perfecta para vivir o invertir.</p>
+                    <div class="hero-buttons">
+                        <a href="#propiedades" class="btn btn-light btn-lg"><i class="fas fa-search me-2"></i>Ver propiedades</a>
+                        <a href="#contacto" class="btn btn-outline-light btn-lg"><i class="fas fa-envelope me-2"></i>Contactar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrows">
+            <button id="hero-prev"><i class="fas fa-chevron-left"></i></button>
+            <button id="hero-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="css/img/slider/casa-lujo1.jpg">
+            </div>
+            <div class="item">
+                <img src="css/img/slider/casa-lujo2.webp">
+            </div>
+            <div class="item">
+                <img src="css/img/slider/casa-lujo3.webp">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mt-5" id="propiedades">
+        <div class="row mb-4">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <h2 class="mb-3">Propiedades Destacadas</h2>
+                <p class="text-muted">Explora nuestra selección de propiedades exclusivas</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- Filtros - Ahora con altura máxima y scroll -->
+            <div class="col-lg-3" data-aos="fade-right">
+                <div class="filters-sidebar">
+                    <h4><i class="fas fa-filter"></i> Filtros</h4>
+
+                    <!-- Búsqueda Avanzada -->
+                    <div class="advanced-search-container mb-4">
+                        <div class="search-input-container">
+                            <input type="text"
+                                   id="advanced-search-input"
+                                   class="form-control"
+                                   placeholder="Buscar por dirección, colonia, ciudad..."
+                                   autocomplete="off">
+                            <div id="suggestions-container" class="suggestions-container"></div>
+                        </div>
+
+                        <!-- Historial de búsquedas -->
+                        <div id="search-history" class="search-history mt-2" style="display: none;">
+                            <h6><i class="fas fa-history"></i> Búsquedas recientes</h6>
+                            <div id="search-history-list"></div>
+                        </div>
+
+                        <!-- Búsquedas guardadas -->
+                        <div id="saved-searches" class="saved-searches mt-2" style="display: none;">
+                            <h6><i class="fas fa-bookmark"></i> Búsquedas guardadas</h6>
+                            <div id="saved-searches-list"></div>
+                            <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="save-search-btn">
+                                <i class="fas fa-save"></i> Guardar búsqueda actual
+                            </button>
+                        </div>
+                    </div>
+
+                    <form id="filterForm">
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control" id="searchAddress" placeholder="Buscar por dirección">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="fas fa-house"></i> Tipo de Propiedad</label>
+                            <select class="form-select" id="propertyType">
+                                <option value="">Todos</option>
+                                <option value="casa">Casa</option>
+                                <option value="departamento">Departamento</option>
+                                <option value="terreno">Terreno</option>
+                                <option value="oficina">Oficina</option>
+                                <option value="local">Local</option>
+                                <option value="edificio">Edificio</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="fas fa-tag"></i> Operación</label>
+                            <select class="form-select" id="operationType">
+                                <option value="">Todos</option>
+                                <option value="venta">Venta</option>
+                                <option value="renta">Renta</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="fas fa-dollar-sign"></i> Rango de Precio</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">Min</span>
+                                <input type="number" class="form-control" id="minPrice" placeholder="Mínimo">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">Max</span>
+                                <input type="number" class="form-control" id="maxPrice" placeholder="Máximo">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label"><i class="fas fa-bed"></i> Habitaciones</label>
+                            <select class="form-select" id="habitaciones">
+                                <option value="">Cualquiera</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label"><i class="fas fa-bath"></i> Baños</label>
+                            <select class="form-select" id="banos">
+                                <option value="">Cualquiera</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                            </select>
+                        </div>
+
+                        <div class="amenities-section mb-3">
+                            <label class="form-label"><i class="fas fa-star"></i> Amenidades</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="estudio">
+                                        <label class="form-check-label" for="estudio">Estudio</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sala_tv">
+                                        <label class="form-check-label" for="sala_tv">Sala TV</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cuarto_servicio">
+                                        <label class="form-check-label" for="cuarto_servicio">Cuarto Servicio</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sala_juntas">
+                                        <label class="form-check-label" for="sala_juntas">Sala Juntas</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="bodega">
+                                        <label class="form-check-label" for="bodega">Bodega</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cisterna">
+                                        <label class="form-check-label" for="cisterna">Cisterna</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="alberca">
+                                        <label class="form-check-label" for="alberca">Alberca</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="jacuzzi">
+                                        <label class="form-check-label" for="jacuzzi">Jacuzzi</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gimnasio">
+                                        <label class="form-check-label" for="gimnasio">Gimnasio</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="salon_eventos">
+                                        <label class="form-check-label" for="salon_eventos">Salón Eventos</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="garage">
+                                        <label class="form-check-label" for="garage">Garage</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="rampas">
+                                        <label class="form-check-label" for="rampas">Rampas</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="asador">
+                                        <label class="form-check-label" for="asador">Asador</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="aire_acondicionado">
+                                        <label class="form-check-label" for="aire_acondicionado">Aire Acondicionado</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="ventiladores">
+                                        <label class="form-check-label" for="ventiladores">Ventiladores</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary" id="applyFilters">
+                                <i class="fas fa-filter me-2"></i> Aplicar Filtros
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" id="resetFilters">
+                                <i class="fas fa-undo me-2"></i> Limpiar Filtros
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div class="col-lg-9" data-aos="fade-left">
+                <div class="row mb-4" id="mapa">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3"><i class="fas fa-map-marker-alt"></i> Mapa de Propiedades</h4>
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-8">
+                        <h4><i class="fas fa-building"></i> Propiedades Disponibles</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-end">
+                            <select class="form-select" id="sortProperties">
+                                <option value="recomendados">Recomendados</option>
+                                <option value="precio_asc">Precio: Menor a Mayor</option>
+                                <option value="precio_desc">Precio: Mayor a Menor</option>
+                                <option value="recientes">Más Recientes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" id="propertiesContainer">
+                    <!-- Las tarjetas de propiedades se insertarán aquí dinámicamente -->
+                    <div class="col-12 text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Cargando...</span>
+                        </div>
+                        <p>Cargando propiedades...</p>
+                    </div>
+                </div>
+                
+                <!-- Paginación -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <nav aria-label="Paginación de propiedades">
+                            <ul class="pagination justify-content-center" id="pagination">
+                                <!-- La paginación se generará dinámicamente -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección de Estadísticas -->
+    <section class="bg-light py-5 mt-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                        <i class="fas fa-home fa-3x mb-3 text-primary"></i>
+                        <h3 class="counter">500</h3>
+                        <p class="text-muted">Propiedades</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                        <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                        <h3 class="counter">1200</h3>
+                        <p class="text-muted">Clientes Satisfechos</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <i class="fas fa-city fa-3x mb-3 text-primary"></i>
+                        <h3 class="counter">25</h3>
+                        <p class="text-muted">Ciudades</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-item">
+                        <i class="fas fa-award fa-3x mb-3 text-primary"></i>
+                        <h3 class="counter">15</h3>
+                        <p class="text-muted">Años de Experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Contacto -->
+    <section class="py-5 mt-4" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4" data-aos="fade-up">
+                    <h2>Contáctanos</h2>
+                    <p class="text-muted">Estamos aquí para ayudarte a encontrar tu propiedad ideal</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="mb-4">Envíanos un mensaje</h4>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre completo</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4 mt-md-0" data-aos="fade-left">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="mb-4">Información de contacto</h4>
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5>Dirección</h5>
+                                    <p class="mb-0">Av. Francisco de Miranda, Caracas, Venezuela</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-phone fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5>Teléfono</h5>
+                                    <p class="mb-0">+58 412-0805543</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-envelope fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5>Email</h5>
+                                    <p class="mb-0">gabitobastardo@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-clock fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5>Horario de atención</h5>
+                                    <p class="mb-0">Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 1:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Footer mejorado -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-building"></i> LandingProperties</h5>
+                    <p class="mb-3">Tu portal inmobiliario de confianza para encontrar la propiedad de tus sueños.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-map-marker-alt"></i> Ubicación</h5>
+                    <address class="mb-0">
+                        <p class="mb-2"><i class="fas fa-map-pin"></i> Av. Francisco de Miranda, Caracas</p>
+                        <p class="mb-2"><i class="fas fa-phone"></i> +58 412-0805543</p>
+                        <p class="mb-0"><i class="fas fa-envelope"></i> gabitobastardo@gmail.com</p>
+                    </address>
+                </div>
+                <div class="col-md-4">
+                    <h5><i class="fas fa-link"></i> Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white"><i class="fas fa-angle-right"></i> Inicio</a></li>
+                        <li><a href="#propiedades" class="text-white"><i class="fas fa-angle-right"></i> Propiedades</a></li>
+                        <li><a href="#mapa" class="text-white"><i class="fas fa-angle-right"></i> Mapa</a></li>
+                        <li><a href="#contacto" class="text-white"><i class="fas fa-angle-right"></i> Contacto</a></li>
+                        <li><a href="#" class="text-white"><i class="fas fa-angle-right"></i> Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">&copy; 2025 LandingProperties - Todos los derechos reservados | Desarrollado por <a href="https://github.com/gabozzz15" class="text-white">Gabriel Bastardo</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Propiedad -->
+    <div class="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="propertyModalLabel">Detalles de la Propiedad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="propertyModalContent">
+                    <!-- El contenido se cargará dinámicamente -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="contactPropertyBtn">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Widget de comparación flotante -->
+    <div id="compare-widget" class="compare-widget" style="display: none;">
+        <div class="compare-widget-header">
+            <h6><i class="fas fa-balance-scale"></i> Comparar Propiedades</h6>
+            <button class="btn-close-widget" onclick="propertyComparison.hideWidget()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="compare-widget-body" id="compare-widget-body">
+            <!-- Las propiedades se cargarán dinámicamente -->
+        </div>
+        <div class="compare-widget-footer">
+            <button class="btn btn-primary btn-sm w-100" onclick="propertyComparison.showComparison()">
+                <i class="fas fa-eye"></i> Ver Comparación
+            </button>
+        </div>
+    </div>
+
+    <!-- jQuery primero -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Counter Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="js/plugins/jquery.counterup.min.js"></script>
+
+    <!-- Enhanced Scripts -->
+    <script src="js/notifications.js"></script>
+    <script src="js/advanced-search.js"></script>
+    <script src="js/property-comparison.js"></script>
+    <script src="js/app-config.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <!-- Slider JS -->
+    <script src="js/slider.js"></script>
+
+    <!-- Inicialización de componentes -->
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Registrar Service Worker para PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
