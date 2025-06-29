@@ -1,10 +1,8 @@
-# LandingProperties 🏘️
+# LandingProperties - Laravel Migration 🏘️
 
 ## Descripción del Proyecto
 
-LandingProperties es una aplicación web moderna e interactiva diseñada para mostrar y filtrar propiedades inmobiliarias. La plataforma ofrece una experiencia de usuario intuitiva que permite a los usuarios explorar propiedades mediante un mapa interactivo, filtros avanzados y tarjetas de propiedades detalladas.
-
-![Vista Previa de LandingProperties](screenshot.png)
+LandingProperties es una aplicación web moderna e interactiva diseñada para mostrar y filtrar propiedades inmobiliarias, ahora migrada a Laravel. La plataforma ofrece una experiencia de usuario intuitiva que permite a los usuarios explorar propiedades mediante un mapa interactivo, filtros avanzados y tarjetas de propiedades detalladas.
 
 ## 🌟 Características Principales
 
@@ -17,123 +15,217 @@ LandingProperties es una aplicación web moderna e interactiva diseñada para mo
 - **Tarjetas de Propiedades Detalladas**
 - **Responsive Design**: Funciona en dispositivos móviles y de escritorio
 - **Búsqueda por Dirección**
+- **API RESTful**: Endpoints para obtener propiedades y estadísticas
+- **Sistema de Favoritos**: Guardar propiedades favoritas en localStorage
 
 ## 🛠️ Tecnologías Utilizadas
 
-### Frontend
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Bootstrap 5
-- Font Awesome
-- Leaflet.js
-
 ### Backend
-- PHP
-- MySQL
+- **Laravel 10+**: Framework PHP
+- **MySQL**: Base de datos
+- **Eloquent ORM**: Para manejo de datos
 
-## 📦 Requisitos Previos
+### Frontend
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
+- **Bootstrap 5**
+- **Font Awesome**
+- **Leaflet.js**: Para mapas interactivos
+- **AOS**: Animaciones on scroll
 
-- Servidor web (Apache/Nginx)
-- PHP 7.4+
-- MySQL 5.7+
-- Navegador web moderno
+## 📦 Estructura del Proyecto
 
-## 🚀 Instalación
-
-### Clonar el Repositorio
-```bash
-git clone https://github.com/gabozzz15/LandingPage-Properties.git
-cd LandingPage-Properties
+```
+├── app/
+│   ├── Http/Controllers/
+│   │   └── PropertyController.php
+│   └── Models/
+│       └── Property.php
+├── database/
+│   ├── migrations/
+│   │   └── 2024_01_01_000000_create_properties_table.php
+│   └── seeders/
+│       ├── DatabaseSeeder.php
+│       └── PropertySeeder.php
+├── resources/
+│   ├── css/
+│   │   ├── styles.css
+│   │   └── slider.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── slider.js
+│   │   └── plugins/
+│   │       └── jquery.counterup.min.js
+│   ├── images/
+│   │   └── [imágenes de propiedades]
+│   └── views/
+│       ├── layouts/
+│       │   └── app.blade.php
+│       ├── partials/
+│       │   └── property-card.blade.php
+│       └── properties/
+│           └── index.blade.php
+├── routes/
+│   ├── web.php
+│   └── api.php
+└── config/
+    └── database.php
 ```
 
-### Configuración de Base de Datos
-1. Crear base de datos:
-```sql
-CREATE DATABASE inmobiliaria_landing_db;
-```
+## 🚀 Instalación y Configuración
 
-2. Importar estructura de base de datos:
-```bash
-mysql -u tu_usuario -p inmobiliaria_landing_db < inmobiliaria_landing_db.sql
-```
+### Requisitos Previos
+- PHP 8.1 o superior
+- Composer
+- MySQL 5.7 o superior
+- Node.js y npm (opcional, para compilar assets)
 
-3. Configurar conexión de base de datos en `get_properties.php`:
-```php
-$conn = new PDO("mysql:host=localhost;dbname=inmobiliaria_landing_db", "usuario", "contraseña");
-```
+### Pasos de Instalación
 
-## 🔧 Configuración
+1. **Clonar el repositorio**
+   ```bash
+   git clone [https://github.com/gabozzz15/LandingPage-PropertiesV2-Laravel]
+   cd LandingPage-PropertiesV2-Laravel
+   ```
 
-### Estructura de Archivos
-```
-LandingProperties/
-│
-├── css/
-│   ├── styles.css
-│   └── img/
-│
-├── js/
-│   └── main.js
-│
-├── index.html
-├── get_properties.php
-└── inmobiliaria_landing_db.sql
-```
+2. **Instalar dependencias de PHP**
+   ```bash
+   composer install
+   ```
 
-## 🌐 Despliegue
+3. **Configurar el archivo de entorno**
+   ```bash
+   cp .env.env
+   ```
+   
+   Editar el archivo `.env` con tu configuración de base de datos:
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=inmobiliaria_landing_db
+   DB_USERNAME=tu_usuario
+   DB_PASSWORD=tu_contraseña
+   ```
 
-### Configuración del Servidor
-1. Copiar archivos al directorio web
-2. Configurar permisos
-3. Verificar conexión a base de datos
+4. **Generar la clave de aplicación**
+   ```bash
+   php artisan key:generate
+   ```
 
-## 🔍 Funcionalidades Detalladas
+5. **Crear la base de datos**
+   Crear una base de datos MySQL llamada `inmobiliaria_landing_db`
 
-### Filtrado de Propiedades
-- Filtro por tipo de propiedad (casa, departamento, terreno, etc.)
-- Filtro por operación (venta/renta)
-- Rango de precios personalizable
-- Selección de múltiples amenidades
+6. **Ejecutar las migraciones**
+   ```bash
+   php artisan migrate
+   ```
 
-### Mapa Interactivo
-- Ubicación de propiedades en mapa de Venezuela
-- Zoom y navegación
-- Marcadores con información de propiedades
-- Centrado en propiedades seleccionadas
+7. **Poblar la base de datos con datos de ejemplo**
+   ```bash
+   php artisan db:seed
+   ```
+
+8. **Crear el enlace simbólico para storage (si usas imágenes)**
+   ```bash
+   php artisan storage:link
+   ```
+
+9. **Iniciar el servidor de desarrollo**
+   ```bash
+   php artisan serve
+   ```
+
+   La aplicación estará disponible en `http://localhost:8000`
+
+## 📊 Base de Datos
+
+### Tabla Properties
+
+La tabla `properties` contiene los siguientes campos:
+
+- **Información básica**: id, title, description, price, currency, address
+- **Tipo y operación**: type, operation
+- **Características**: bedrooms, bathrooms, built_surface, land_surface
+- **Ubicación**: latitude, longitude
+- **Imagen**: main_image
+- **Amenidades**: study, tv_room, service_room, meeting_room, warehouse, cistern, pool, jacuzzi, gym, event_room, garage, ramps, grill, air_conditioning, fans
+- **Timestamps**: created_at, updated_at
+
+## 🔌 API Endpoints
+
+### Propiedades
+- `GET /api/properties` - Obtener propiedades con filtros
+- `GET /api/properties/{id}` - Obtener una propiedad específica
+- `GET /api/stats` - Obtener estadísticas
+
+### Parámetros de filtrado disponibles:
+- `type`: Tipo de propiedad (casa, departamento, terreno, etc.)
+- `operation`: Operación (venta, renta)
+- `price_min`: Precio mínimo
+- `price_max`: Precio máximo
+- `address`: Búsqueda por dirección
+- `bedrooms`: Número mínimo de habitaciones
+- `bathrooms`: Número mínimo de baños
+- Amenidades: `pool`, `garage`, `gym`, etc.
+
+## 🎨 Personalización
+
+### CSS
+Los estilos personalizados se encuentran en:
+- `resources/css/styles.css`: Estilos principales
+- `resources/css/slider.css`: Estilos del slider
+
+### JavaScript
+La funcionalidad JavaScript se encuentra en:
+- `resources/js/main.js`: Funcionalidad principal
+- `resources/js/slider.js`: Funcionalidad del slider
+
+### Vistas Blade
+- `resources/views/layouts/app.blade.php`: Layout principal
+- `resources/views/properties/index.blade.php`: Vista principal
+- `resources/views/partials/property-card.blade.php`: Componente de tarjeta de propiedad
+
+## 🔧 Desarrollo
+
+### Agregar nuevas propiedades
+Puedes agregar propiedades directamente en la base de datos o crear un seeder personalizado.
+
+### Personalizar filtros
+Los filtros se pueden personalizar modificando:
+1. El formulario en la vista `properties/index.blade.php`
+2. La lógica de filtrado en `PropertyController.php`
+3. La función `getFilters()` en `main.js`
+
+### Agregar nuevas amenidades
+1. Agregar el campo a la migración
+2. Actualizar el modelo `Property.php`
+3. Modificar el controlador para incluir el nuevo filtro
+4. Actualizar las vistas para mostrar la nueva amenidad
 
 ## 📱 Responsive Design
-- Diseño adaptable para móviles, tablets y escritorio
-- Menús colapsables
-- Ajuste de layout según tamaño de pantalla
 
-## 🤝 Contribuciones
+La aplicación está completamente optimizada para dispositivos móviles usando Bootstrap 5 y CSS personalizado.
 
-### Cómo Contribuir
-1. Haz un Fork del repositorio
-2. Crea tu rama de características (`git checkout -b feature/AmazingFeature`)
-3. Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
+## 🚀 Producción
+
+Para desplegar en producción:
+
+1. Configurar el archivo `.env` para producción
+2. Ejecutar `php artisan config:cache`
+3. Ejecutar `php artisan route:cache`
+4. Ejecutar `php artisan view:cache`
+5. Configurar el servidor web (Apache/Nginx)
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 🐛 Reportar Problemas
-Reporta problemas o sugerencias en [Issues del Proyecto](https://github.com/gabozzz15/LandingPage-Properties/issues)
-
+5. Abrir un Pull Request
 
 ## 📄 Licencia
 
-Distribuido bajo Licencia MIT. Consulte `LICENSE` para más información.
-
-## 📞 Contacto
-
-Gabriel Bastardo - gabitobastardo@gmail.com
-
-Link del Proyecto: [https://github.com/gabozzz15/LandingPage-Properties](https://github.com/tu-usuario/LandingProperties)
-
-## 🙏 Agradecimientos
-- [Leaflet.js](https://leafletjs.com/)
-- [Bootstrap](https://getbootstrap.com)
-- [Font Awesome](https://fontawesome.com)
-- [OpenStreetMap](https://www.openstreetmap.org/)
-
----
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
