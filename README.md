@@ -1,8 +1,12 @@
-# LandingProperties - Laravel Migration 🏘️
+# LandingProperties
 
 ## Descripción del Proyecto
 
 LandingProperties es una aplicación web moderna e interactiva diseñada para mostrar y filtrar propiedades inmobiliarias, ahora migrada a Laravel. La plataforma ofrece una experiencia de usuario intuitiva que permite a los usuarios explorar propiedades mediante un mapa interactivo, filtros avanzados y tarjetas de propiedades detalladas.
+
+[![image.png](https://i.postimg.cc/1X1L4Vmd/image.png)](https://postimg.cc/0MZtBQJG)
+[![image.png](https://i.postimg.cc/RFKYrC7L/image.png)](https://postimg.cc/JD7xZLds)
+[![image.png](https://i.postimg.cc/JzFYGHKQ/image.png)](https://postimg.cc/gxvH7JCw)
 
 ## 🌟 Características Principales
 
